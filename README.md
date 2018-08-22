@@ -9,7 +9,6 @@
 <li>pip install inflect</li>
 <li>pip install newsapi-python</li>
 <li>pip install --upgrade google-api-python-client oauth2client</li>
-<li>Download credentials.json from <a href="https://developers.google.com/calendar/quickstart/python">https://developers.google.com/calendar/quickstart/python</a> intoto the same folder as this README.</li>
 </ul>
 
 <h2>Configuration:</h2>
@@ -17,6 +16,7 @@
 <ol>
 <li>Choose your form of address ("formOfAddress")</li>
 <li>Find and input your city's name and <a href="https://developer.yahoo.com/weather/documentation.html">Yahoo WOEID</a> ("woeid" and "cityName")</li>
-<li>Get a free API key from <a href="https://newsapi.org/">newsapi.org</a> ("newsApiOrgApiKey")</li>
+<li>Get a free API key from <a href="https://newsapi.org/">newsapi.org</a> and save it to "newsApiOrgAPIKey.txt" in the same directory as briefing.py.</li>
 <li>Optional: also change the <a href="https://newsapi.org/docs/endpoints/sources">news sources</a> the headlines are taken from ("newsApiOrgSources")</li>
+<li>Download credentials.json from <a href="https://developers.google.com/calendar/quickstart/python">https://developers.google.com/calendar/quickstart/python</a> into to the same folder as this README.</li>
 </ol>
