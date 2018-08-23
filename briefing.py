@@ -27,7 +27,7 @@ inflectEngine = inflect.engine()
 
 from newsapi import NewsApiClient
 
-# TODO: clean up code, shard and abstract functions, split into multiple classes (and files)
+# TODO: clean up code, shard and abstract functions, split into multiple classes (and files <= 50 lines each)
 # TODO: add error handling
 
 
@@ -67,12 +67,24 @@ def getWeather():
     return currentWeather + " " + forecastedWeather
 
 def timeToSpoken(hours, mins):
+    nearerFloorHour = True
+    if (mins > 30):
+        hours += 1
+        if (hours == 25): hours = 1
+        mins = 60 - mins
+        nearerFloorHour = False
+    
     morningAfternoonEvening = morningAfternoonEveningFromHours(hours)
-    if (hours >= 12): hours -= 12
+    if (hours > 12): hours -= 12
     hours = inflectEngine.number_to_words(hours)
-    mins = inflectEngine.number_to_words(mins)
-    if (mins == "zero"): mins = "o'clock"
-    return hours + " " + mins + " in the " + morningAfternoonEvening
+    minsStr = inflectEngine.number_to_words(mins)
+    if (minsStr == "fifteen"): minsStr = "quarter"
+    if (mins == 30): minsStr = "half"
+    
+    if (nearerFloorHour):
+        if (mins == 0): minsStr = "o'clock"
+        return minsStr +  " past " + hours + " in the " + morningAfternoonEvening
+    return minsStr +  " to " + hours + " in the " + morningAfternoonEvening
 
 def morningAfternoonEveningFromHours(hours):
     result = "morning"
