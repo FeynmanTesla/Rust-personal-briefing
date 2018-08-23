@@ -27,6 +27,9 @@ inflectEngine = inflect.engine()
 
 from newsapi import NewsApiClient
 
+# TODO: clean up code, shard and abstract functions, split into multiple classes (and files)
+# TODO: add error handling
+
 
 # CONFIGURATION
 
@@ -182,9 +185,14 @@ def getEvents():
     if (eventsStr == "Here are your upcoming events for the next month."): eventsStr = "No upcoming events found for the next month."
     return eventsStr
 
+def getGmailEmails():# TODO: implement this
+    return "The number of new unread G mail emails here, then the title and sender of each email."
+
+def getOffice365Emails():# TODO: implement this
+    return "The number of new unread office 365 emails here, then the title and sender of each email."
 
 def getContactNotifications():
-    return "Contact notifications - emails - will be here."
+    return getGmailEmails() + " \n\n" + getOffice365Emails()
 
 def main():
     #TODO: add an alarm or something?
