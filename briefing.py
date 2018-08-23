@@ -68,13 +68,13 @@ def getWeather():
 
 def timeToSpoken(hours, mins):
     nearerFloorHour = True
+    mins = int(5 * round(float(mins)/5)) # round to nearest 5
+    morningAfternoonEvening = morningAfternoonEveningFromHours(hours)
     if (mins > 30):
         hours += 1
         if (hours == 25): hours = 1
         mins = 60 - mins
         nearerFloorHour = False
-    
-    morningAfternoonEvening = morningAfternoonEveningFromHours(hours)
     if (hours > 12): hours -= 12
     hours = inflectEngine.number_to_words(hours)
     minsStr = inflectEngine.number_to_words(mins)
@@ -82,7 +82,7 @@ def timeToSpoken(hours, mins):
     if (mins == 30): minsStr = "half"
     
     if (nearerFloorHour):
-        if (mins == 0): minsStr = "o'clock"
+        if (mins == 0): return hours + "o'clock in the " + morningAfternoonEvening
         return minsStr +  " past " + hours + " in the " + morningAfternoonEvening
     return minsStr +  " to " + hours + " in the " + morningAfternoonEvening
 
@@ -108,7 +108,7 @@ def getDateTime():
     year = inflectEngine.number_to_words(dateAndTime.strftime("%Y"))
     date = dateOfMonth + " of " + month + " " + year
 
-    hour = int(dateAndTime.strftime("%I"))
+    hour = int(dateAndTime.strftime("%H"))
     mins = int(dateAndTime.strftime("%M"))
     time = timeToSpoken(hour, mins)
 
