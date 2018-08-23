@@ -63,13 +63,25 @@ def getWeather():
 
     return currentWeather + " " + forecastedWeather
 
+def timeToSpoken(hours, mins):
+    morningAfternoonEvening = morningAfternoonEveningFromHours(hours)
+    if (hours >= 12): hours -= 12
+    hours = inflectEngine.number_to_words(hours)
+    mins = inflectEngine.number_to_words(mins)
+    if (mins == "zero"): mins = "o'clock"
+    return hours + " " + mins + " in the " + morningAfternoonEvening
+
+def morningAfternoonEveningFromHours(hours):
+    result = "morning"
+    if (hours >= 12 and hours < 17):
+        result = "afternoon"
+    if (hours >= 17 and hours < 25):
+        result = "evening"
+    return result
+
 def getGreeting():
     hour = datetime.datetime.now().hour
-    morningAfternoonEvening = "morning"
-    if (hour >= 12 and hour < 17):
-        morningAfternoonEvening = "afternoon"
-    if (hour >= 17 and hour < 25):
-        morningAfternoonEvening = "evening"
+    morningAfternoonEvening = morningAfternoonEveningFromHours(hour)
     return "Good " + morningAfternoonEvening + " " + formOfAddress + "."
 
 def getDateTime():
@@ -81,14 +93,9 @@ def getDateTime():
     year = inflectEngine.number_to_words(dateAndTime.strftime("%Y"))
     date = dateOfMonth + " of " + month + " " + year
 
-    hours = inflectEngine.number_to_words(dateAndTime.strftime("%I"))
-    mins = inflectEngine.number_to_words(dateAndTime.strftime("%M"))
-    amPm = dateAndTime.strftime("%p")
-    if (amPm == "AM"):
-        amPm = "afternoon"
-    else:
-        amPm = "afternoon"
-    time = mins + " past " + hours + " in the " + amPm
+    hour = int(dateAndTime.strftime("%I"))
+    mins = int(dateAndTime.strftime("%M"))
+    time = timeToSpoken(hour, mins)
 
     return "It is " + time + " of " + dayOfWeek + ", the " + date + "."
 
@@ -119,7 +126,6 @@ def getEvents():
 
     # Call the Calendar API
     now = datetime.datetime.utcnow().isoformat() + "Z" # "Z" indicates UTC time
-    print("Getting the upcoming 10 events")
     events_result = service.events().list(calendarId="primary", timeMin=now,
                                         maxResults=10, singleEvents=True,
                                         orderBy="startTime").execute()
@@ -135,8 +141,9 @@ def getEvents():
     currDayOfMonth = int(now.strftime("%d"))
     months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     daysInEachMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    currWeekdayNumber = int(now.strftime("%w")) # Weekday as a number 0-6, 0 is Sunday
-    weekdays =  ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    currWeekdayNumber = int(now.strftime("%w")) - 1 # Weekday as a number 0-6, 0 is Monday with -1 and if =-1 then 6 adjustment
+    if (currWeekdayNumber == -1): currWeekdayNumber = 6
+    weekdays =  ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
     for event in events:
         dateTime = event["start"].get("dateTime", event["start"].get("date")) # format 2018-09-14T17:30:00+01:00 YYYY-MM-DDTHH:MM
@@ -148,58 +155,30 @@ def getEvents():
         hours = int(dateTime[11:13])
         mins = int(dateTime[14:16])
 
-        print("\n\n")
-        print(year)
-        print(monthNumber)
-        print(month)
-        print(hours)
-        print(mins)
-        print(event["summary"])
-
-        amPm = "AM"
-        if (hours > 12):
-            hours -= 12
-            amPm = "PM"
-
-        if (year > currYear + 1):
-            print("\nbreak 1")
-            print(year)
-            print(currYear)
-            print("break 1\n")
-            break
-        if (monthNumber > currMonth + 1 or (monthNumber == 0 and currMonth == 11)):
-            print("\nbreak 2")
-            print(monthNumber)
-            print(currMonth)
-            print("break 2\n")
-            break
-        if (monthNumber != currMonth and dayOfMonth > currDayOfMonth):
-            print("\nbreak 3")
-            print(monthNumber)
-            print(currMonth)
-            print(dayOfMonth)
-            print(currDayOfMonth)
-            print("break 3\n")
-            break
+        if (year > currYear + 1): break
+        if (monthNumber != currMonth and monthNumber != currMonth + 1): break
+        if (monthNumber == currMonth + 1 and dayOfMonth > currDayOfMonth + 3): break
         
-        print("assessing if within a week")
-        
-        withinAWeek = currMonth == monthNumber and currDayOfMonth + 7 <= dayOfMonth
+        withinAWeek = currMonth == monthNumber and currDayOfMonth + 7 >= dayOfMonth
         if (not withinAWeek): withinAWeek = currMonth != monthNumber and currDayOfMonth + 7 - daysInEachMonth[currMonth] >= dayOfMonth
 
-        print("withinAWeek = " + str(withinAWeek))
-
-        eventsStr += " " + event["summary"] + " is at " + inflectEngine.number_to_words(hours) + " " + inflectEngine.number_to_words(mins) + " " + amPm + " on "
+        eventsStr += " " + event["summary"] + " is at " + timeToSpoken(hours, mins)
         if (withinAWeek):
-            print("within a week")
             diff = dayOfMonth - currDayOfMonth
-            if (month != currMonth):
-                diff = dayOfMonth + daysInEachMonth[currMonth] - currDayOfMonth #TODO: add leap year compatability
-            weekdayNumber = currWeekdayNumber + diff
-            eventsStr += weekdays[weekdayNumber]
-        eventsStr += " the " + inflectEngine.ordinal(dayOfMonth) + " of " + month + "."
+            if (monthNumber != currMonth):
+                diff = dayOfMonth + daysInEachMonth[currMonth] - currDayOfMonth
+                if (currMonth == 1):
+                    leapYear = year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+                    if (leapYear): diff += 1
+            weekdayNumber = (currWeekdayNumber + diff) % 7
+            if (diff == 0):
+                eventsStr += " today."
+                continue
+            else:
+                eventsStr += " on " + weekdays[weekdayNumber] + ", the " + inflectEngine.ordinal(dayOfMonth) + " of " + month + "."
+                continue
+        else: eventsStr += " on the " + inflectEngine.ordinal(dayOfMonth) + " of " + month + "."
 
-    print(eventsStr)
     if (eventsStr == "Here are your upcoming events for the next month."): eventsStr = "No upcoming events found for the next month."
     return eventsStr
 
@@ -210,7 +189,7 @@ def getContactNotifications():
 def main():
     #TODO: add an alarm or something?
     text = getGreeting() + " \n\n" + getDateTime() + " \n\n" + getWeather() + " \n\n" + getEvents() + " \n\n" + getContactNotifications() + " \n\n" + getNews()
-    #print(text)
+    print(text)
     giveWakeUp(text)
 
 main()
