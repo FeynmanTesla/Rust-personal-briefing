@@ -13,8 +13,11 @@ from getDateTime import getDateTime, datetime
 from getEvents import getEvents
 from getOffice365Emails import getOffice365Emails
 
-# TODO: clean up code, shard and abstract functions, split into multiple classes (and files <= 50 lines each)
+# TODO: clean up code, split and abstract methods
+# TODO: ensure all source code files are <= 50 lines each
+# TODO: ensure all methods in all source code files are <= 20 lines each
 # TODO: add error handling
+# TODO: update README.md
 
 formOfAddress = "sir" # your chosen form of address
 

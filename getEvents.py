@@ -15,8 +15,6 @@ from getDateTime import datetime, timeToSpoken, inflectEngine
 # If modifying these scopes, delete the file token.json.
 SCOPES = "https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/gmail.readonly"
 
-#TODO: split the methods of this file, and put them into separate files (<= 50 lines long each)
-
 def getEvents():
     """Shows basic usage of the Google Calendar API.
     Prints the start and name of the next 10 events on the user's calendar.
