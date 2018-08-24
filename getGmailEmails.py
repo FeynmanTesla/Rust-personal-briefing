@@ -22,12 +22,12 @@ def getGmailEmails():
         
         if (len(messages) == 0): return "You do not have any recent unread G-mail emails."
 
-        for i in range(0, len(messages) - 1):
+        for i in range(0, len(messages)):
             results += getMessage(messages[i]["id"])
             if(i > maxResultsNo - 1): break
         
         results = results[1:len(results)]
-        return "Here are your recent unread G-mail emails. " + results
+        return "Here are your " + str(len(messages)) + " recent unread G-mail emails. " + results
     except errors.HttpError, error:
         print (error)
 
@@ -47,8 +47,10 @@ def getMessage(msg_id):
                 emailFrom = emailFrom[:emailFrom.find("<")]
             elif(header["name"] == "Subject"):
                 subject = header["value"]
+                lastChar = subject[len(subject) - 1]
+                if (lastChar != "!" and lastChar != "." and lastChar != "?"): subject += "."
             
-        if (emailFrom != "" and subject != ""): return " " + emailFrom + "sent you an email about " + subject + "."
+        if (emailFrom != "" and subject != ""): return " " + emailFrom + "sent you an email about " + subject
         else: return ""
     except errors.HttpError, error:
         print (error)

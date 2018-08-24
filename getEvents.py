@@ -7,7 +7,6 @@ from httplib2 import Http
 from oauth2client import file, client, tools
 
 import logging
-
 logging.getLogger("googleapicliet.discovery_cache").setLevel(logging.ERROR)
 
 from getDateTime import datetime, timeToSpoken, inflectEngine

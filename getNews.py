@@ -4,6 +4,9 @@ newsApiOrgApiKey = open("newsApiOrgAPIKey.txt","r").read() # a text file contain
 newsApiOrgSources = "the-guardian-uk,bbc-news,al-jazeera-english,independent" # the news sources the headlines are from
 # format of sources: comma-separated string of source ids. See sources at: https://newsapi.org/docs/endpoints/sources
 
+# TODO: process the headlines from reading -> listening format
+#           e.g. "S America" --> "South America", "<pound symbol>50bn" --> "50 billion pounds", etc
+
 def getNews():
     newsapi = NewsApiClient(api_key=newsApiOrgApiKey)
     top_headlines = newsapi.get_top_headlines(sources=newsApiOrgSources)

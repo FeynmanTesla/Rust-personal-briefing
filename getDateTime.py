@@ -38,7 +38,7 @@ def getDateTime():
     month = dateAndTime.strftime("%B")
     dateOfMonth = inflectEngine.ordinal(dateAndTime.strftime("%d"))
     year = inflectEngine.number_to_words(dateAndTime.strftime("%Y"))
-    date = dateOfMonth + " of " + month + " " + year
+    date = dateOfMonth + " of " + month + ", " + year
 
     hour = int(dateAndTime.strftime("%H"))
     mins = int(dateAndTime.strftime("%M"))
