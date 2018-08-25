@@ -14,6 +14,9 @@ def morningAfternoonEveningFromHours(hours):
 def timeToSpoken(hours, mins):
     nearerFloorHour = True
     mins = int(5 * round(float(mins)/5)) # round to nearest 5
+    if (mins == 60):
+        hours += 1
+        mins = 0
     morningAfternoonEvening = morningAfternoonEveningFromHours(hours)
     if (mins > 30):
         hours += 1
@@ -26,8 +29,9 @@ def timeToSpoken(hours, mins):
     if (minsStr == "fifteen"): minsStr = "quarter"
     if (mins == 30): minsStr = "half"
     
+    if (mins == 0): return hours + "o'clock in the " + morningAfternoonEvening
+    
     if (nearerFloorHour):
-        if (mins == 0): return hours + "o'clock in the " + morningAfternoonEvening
         return minsStr +  " past " + hours + " in the " + morningAfternoonEvening
     return minsStr +  " to " + hours + " in the " + morningAfternoonEvening
 

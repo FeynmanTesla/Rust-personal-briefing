@@ -45,6 +45,7 @@ def getMessage(msg_id):
             if(header["name"] == "From"):
                 emailFrom = header["value"].replace("\"", "")
                 emailFrom = emailFrom[:emailFrom.find("<")]
+                if (emailFrom[len(emailFrom) - 1] != " "): emailFrom += " "
             elif(header["name"] == "Subject"):
                 subject = header["value"]
                 lastChar = subject[len(subject) - 1]
