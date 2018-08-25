@@ -2,9 +2,9 @@ from weather import Weather, Unit
 weather = Weather(unit=Unit.CELSIUS)
 import datetime
 
-woeid = 35567 # this is the ID for your city from Yahoo's Weather API. By default, St Andrews, Scotland.
+woeid = int(open("woeid.txt","r").read()) # this is the ID for your city from Yahoo's Weather API. By default, St Andrews, Scotland.
 # Learn how to find your city's woeid here: https://developer.yahoo.com/weather/documentation.html
-cityName = "St Andrews" # the name of your city.
+cityName = open("cityName.txt","r").read() # the name of your city.
 
 import inflect
 inflectEngine = inflect.engine()

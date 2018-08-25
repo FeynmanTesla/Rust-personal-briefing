@@ -1,8 +1,7 @@
 from newsapi import NewsApiClient
 
 newsApiOrgApiKey = open("newsApiOrgAPIKey.txt","r").read() # a text file containing your free API key from https://newsapi.org/
-newsApiOrgSources = "the-guardian-uk,bbc-news,al-jazeera-english,independent" # the news sources the headlines are from
-# format of sources: comma-separated string of source ids. See sources at: https://newsapi.org/docs/endpoints/sources
+newsApiOrgSources = open("newsApiOrgSources.txt","r").read() # the news sources the headlines are from
 
 # TODO: process the headlines from reading -> listening format
 #           e.g. "S America" --> "South America", "<pound symbol>50bn" --> "50 billion pounds", etc

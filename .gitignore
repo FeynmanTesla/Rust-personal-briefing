@@ -14,3 +14,7 @@ imaplib.pyc
 outlook.pyc
 processEvent.pyc
 processGmailMessage.pyc
+formOfAddress.txt
+woeid.txt
+cityName.txt
+newsApiOrgSources.txt
