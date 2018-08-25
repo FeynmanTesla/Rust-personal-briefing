@@ -1,5 +1,5 @@
 <h1>Python-morning-wakeup</h1>
-<p>This is a simple Python program to sound an alarm at a preset time, then to give the user a briefing including the current date and time, upcoming events for the day from a Calendar, unread emails or other contact notifications, the weather, and news headlines. To be able to run it ensure you have the installed packages below and go through the described configuration.</p>
+<p>A Python program that sounds an alarm at a preset time, then gives a briefing including the date and time, upcoming events, unread emails and/or other messages, the weather, and news headlines. To be able to run it ensure you have the installed packages below and go through the described configuration.</p>
 
 <h2>Dependencies:</h2>
 <p>Have <a href="https://pypi.org/project/pip/">pip (Python Package Index)</a> installed. From there go to your Terminal/cmd/etc and run the following commands to install the required packages:</p>
