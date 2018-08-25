@@ -12,3 +12,4 @@ office365EmailAddress.txt
 office365EmailPassword.txt
 imaplib.pyc
 outlook.pyc
+processEvent.pyc
