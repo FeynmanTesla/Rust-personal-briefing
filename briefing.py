@@ -18,6 +18,7 @@ from getOffice365Emails import getOffice365Emails
 # TODO: ensure all methods in all source code files are <= 20 lines each
 # TODO: add error handling
 # TODO: update README.md
+# TODO: add an alarm
 
 formOfAddress = "sir" # your chosen form of address
 
@@ -31,10 +32,9 @@ def giveWakeUp(text):
 def getContactNotifications():
     return getGmailEmails() + " \n\n" + getOffice365Emails()
 
-def main():
-    #TODO: add an alarm or something?
+def giveBriefing():
     text = getGreeting(formOfAddress) + " \n\n" + getDateTime() + " \n\n" + getWeather() + " \n\n" + getEvents() + " \n\n" + getContactNotifications() + " \n\n" + getNews()
     print(text)
     giveWakeUp(text)
 
-main()
+giveBriefing()
