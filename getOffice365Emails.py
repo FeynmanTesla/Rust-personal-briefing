@@ -1,2 +1,8 @@
-def getOffice365Emails():# TODO: implement this
-    return "The number of new unread office 365 emails here, then the title and sender of each email."
+import outlook
+office365EmailAddress = open("office365EmailAddress.txt","r").read()
+office365EmailPassword = open("office365EmailPassword.txt","r").read()
+
+mail = outlook.Outlook()
+mail.login('emailaccount@live.com','yourpassword')
+mail.inbox()
+print mail.unread()
