@@ -14,7 +14,6 @@ from getEvents import getEvents
 from getOffice365Emails import getOffice365Emails
 
 # TODO: clean up code, split and abstract methods
-# TODO: ensure all source code files are <= 50 lines each
 # TODO: ensure all methods in all source code files are <= 20 lines each
 # TODO: add error handling
 # TODO: update README.md
