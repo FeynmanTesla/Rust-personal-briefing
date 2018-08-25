@@ -19,4 +19,5 @@
 <li>Get a free API key from <a href="https://newsapi.org/">newsapi.org</a> and save it to newsApiOrgAPIKey.txt.</li>
 <li>Choose the <a href="https://newsapi.org/docs/endpoints/sources">news sources</a> the headlines are taken from, and save them to newsApiOrgSources.txt. They should be formatted as a comma-separated string of source ids.</li>
 <li>Download credentials.json from <a href="https://developers.google.com/calendar/quickstart/python">https://developers.google.com/calendar/quickstart/python</a> into to the same folder as this README.</li>
+<li>Save your office 365 email address and password to office365EmailAddress.txt and office365EmailPassword.txt</li>
 </ol>
