@@ -11,11 +11,11 @@ query = "newer_than:3d and is:unread"
 maxResultsNo = 10
 store = file.Storage("token.json")
 creds = store.get()
-service = build("gmail", "v1", http=creds.authorize(Http()))
 user_id = "me"
 formatStr = "full"
 
 def getGmailEmails():
+    service = build("gmail", "v1", http=creds.authorize(Http()))
     try:
         response = service.users().messages().list(userId=user_id,q=query).execute()
         messages = []
