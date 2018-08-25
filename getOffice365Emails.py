@@ -36,5 +36,3 @@ def getOffice365Emails():
         i += 1
     
     return result
-
-print(getOffice365Emails())
