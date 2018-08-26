@@ -4,7 +4,7 @@ import time
 
 def wakeup():
     alarm()
-    time.sleep(30)
+    time.sleep(10)
     giveBriefing()
 
 def alarm():
