@@ -21,4 +21,5 @@
 <li>Choose the <a href="https://newsapi.org/docs/endpoints/sources">news sources</a> the headlines are taken from, and save them to newsApiOrgSources.txt. They should be formatted as a comma-separated string of source ids.</li>
 <li>Download credentials.json from <a href="https://developers.google.com/calendar/quickstart/python">https://developers.google.com/calendar/quickstart/python</a> into to the same folder as this README.</li>
 <li>Save your office 365 email address and password to office365EmailAddress.txt and office365EmailPassword.txt</li>
+<li>Manually run print(getEvents()) once - taking the getEvents() method from the getEvents.py source file. This is to bring up the authorisation process for the Google APIs for reading Calendar and Gmail, and thereby generating the required token.json file.</li>
 </ol>
