@@ -10,6 +10,7 @@
 <li>pip install newsapi-python</li>
 <li>pip install --upgrade google-api-python-client oauth2client</li>
 <li>pip install O365</li>
+<li>pip install apscheduler</li>
 </ul>
 
 <h2>Configuration:</h2>
@@ -22,4 +23,5 @@
 <li>Download credentials.json from <a href="https://developers.google.com/calendar/quickstart/python">https://developers.google.com/calendar/quickstart/python</a> into to the same folder as this README.</li>
 <li>Save your office 365 email address and password to office365EmailAddress.txt and office365EmailPassword.txt</li>
 <li>Manually run print(getEvents()) once - taking the getEvents() method from the getEvents.py source file. This is to bring up the authorisation process for the Google APIs for reading Calendar and Gmail, and thereby generating the required token.json file.</li>
+<li>Choose the time you wish to be woken up, and save the hours and minutes separately to hoursToWakeAt.txt and minsToWakeAt.txt</li>
 </ol>
