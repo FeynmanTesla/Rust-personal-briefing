@@ -9,6 +9,7 @@
 <li>pip install inflect</li>
 <li>pip install newsapi-python</li>
 <li>pip install --upgrade google-api-python-client oauth2client</li>
+<li>pip install O365</li>
 </ul>
 
 <h2>Configuration:</h2>
