@@ -4,12 +4,12 @@ import time
 
 def wakeup():
     alarm()
-    time.sleep(10)
+    time.sleep(30)
     giveBriefing()
 
 def alarm():
     mixer.init()
     mixer.music.load("alarm.mp3")
-    mixer.music.play()
+    mixer.music.play(3)
 
 wakeup()
