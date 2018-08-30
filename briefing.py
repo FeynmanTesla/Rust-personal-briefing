@@ -1,9 +1,9 @@
-import sys
-reload(sys)
-sys.setdefaultencoding("utf-8")
+# import sys
+# reload(sys)
+# sys.setdefaultencoding("utf-8")
 
-import pyttsx
-engine = pyttsx.init()
+import pyttsx3
+engine = pyttsx3.init()
 
 from getGmailEmails import getGmailEmails
 from getNews import getNews
