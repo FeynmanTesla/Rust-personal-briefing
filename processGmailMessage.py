@@ -20,5 +20,5 @@ def processGmailMessage(msg_id, service, errors):
             
         if (emailFrom != "" and subject != ""): return " " + emailFrom + "sent you an email about " + subject
         else: return ""
-    except errors.HttpError, error:
+    except error:
         print (error)
