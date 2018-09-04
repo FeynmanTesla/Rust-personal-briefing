@@ -11,6 +11,7 @@
 <li>pip install --upgrade google-api-python-client oauth2client</li>
 <li>pip install O365</li>
 <li>pip install apscheduler</li>
+<li>pip install pygame</li>
 </ul>
 
 <h2>Configuration:</h2>
