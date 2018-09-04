@@ -1,6 +1,6 @@
-# import sys
-# reload(sys)
-# sys.setdefaultencoding("utf-8")
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 from processGmailMessage import processGmailMessage
 
@@ -30,5 +30,5 @@ def getGmailEmails():
         
         results = results[1:len(results)]
         return "Here are your " + str(len(messages)) + " recent unread G-mail emails. " + results
-    except error:
+    except errors.HttpError, error:
         print (error)

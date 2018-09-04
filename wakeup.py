@@ -7,6 +7,7 @@ minsToWake = int(open("minsToWakeAt.txt","r").read())
 
 def wakeup():
     alarm()
+    time.sleep(30)
     giveBriefing()
 
 def alarm():
