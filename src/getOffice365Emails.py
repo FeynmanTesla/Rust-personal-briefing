@@ -5,8 +5,8 @@ from O365 import *
 # import time
 # import logging
 
-office365EmailAddress = open("conf/office365EmailAddress.txt", "r").read()
-office365EmailPassword = open("conf/office365EmailPassword.txt", "r").read()
+office365EmailAddress = open("../conf/office365EmailAddress.txt", "r").read()
+office365EmailPassword = open("../conf/office365EmailPassword.txt", "r").read()
 
 
 def process_message(m):

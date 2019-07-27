@@ -1,8 +1,8 @@
 from newsapi import NewsApiClient
 
-newsApiOrgApiKey = open("conf/newsApiOrgAPIKey.txt",
+newsApiOrgApiKey = open("../conf/newsApiOrgAPIKey.txt",
                         "r").read()  # a text file containing your free API key from https://newsapi.org/
-newsApiOrgSources = open("conf/newsApiOrgSources.txt", "r").read()  # the news sources the headlines are from
+newsApiOrgSources = open("../conf/newsApiOrgSources.txt", "r").read()  # the news sources the headlines are from
 
 
 # TODO: process the headlines from reading -> listening format
