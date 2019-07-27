@@ -32,3 +32,14 @@ src/__pycache__/getEvents.cpython-36.pyc
 src/__pycache__/getGmailEmails.cpython-36.pyc
 src/__pycache__/processGmailMessage.cpython-36.pyc
 .idea/.gitignore
+conf/owm_api_key.txt
+conf/city_id.txt
+src/__pycache__/get_date_time.cpython-36.pyc
+src/__pycache__/get_events.cpython-36.pyc
+src/__pycache__/get_gmail_emails.cpython-36.pyc
+src/__pycache__/get_greeting.cpython-36.pyc
+src/__pycache__/get_news.cpython-36.pyc
+src/__pycache__/get_office_365_emails.cpython-36.pyc
+src/__pycache__/get_weather.cpython-36.pyc
+src/__pycache__/process_event.cpython-36.pyc
+src/__pycache__/process_gmail_message.cpython-36.pyc

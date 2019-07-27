@@ -1,2 +1,2 @@
 #!/bin/bash
-cd src && pip3 install weather-api && pip3 install pyttsx && pip3 install inflect && pip3 install newsapi-python && pip3 install --upgrade google-api-python-client oauth2client && pip3 install O365 && pip3 install apscheduler && pip3 install pygame
+cd src && pip3 install pyowm && pip3 install pyttsx && pip3 install inflect && pip3 install newsapi-python && pip3 install --upgrade google-api-python-client oauth2client && pip3 install O365 && pip3 install apscheduler && pip3 install pygame
