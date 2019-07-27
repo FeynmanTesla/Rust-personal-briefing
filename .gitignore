@@ -21,3 +21,14 @@ newsApiOrgSources.txt
 briefing.pyc
 hoursToWakeAt.txt
 minsToWakeAt.txt
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/Python-morning-wakeup.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/dictionaries/tom.xml
+src/__pycache__/briefing.cpython-36.pyc
+src/__pycache__/getEvents.cpython-36.pyc
+src/__pycache__/getGmailEmails.cpython-36.pyc
+src/__pycache__/processGmailMessage.cpython-36.pyc
+.idea/.gitignore
