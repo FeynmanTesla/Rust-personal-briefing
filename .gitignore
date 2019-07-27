@@ -14,7 +14,7 @@ imaplib.pyc
 outlook.pyc
 processEvent.pyc
 processGmailMessage.pyc
-formOfAddress.txt
+conf/form_of_address.txt
 woeid.txt
 cityName.txt
 newsApiOrgSources.txt
@@ -46,3 +46,9 @@ src/__pycache__/process_gmail_message.cpython-36.pyc
 src/o365_token.txt
 conf/office_365_client_id.txt
 conf/office_365_client_secret.txt
+src/__pycache__/wakeup.cpython-36.pyc
+conf/city_name.txt
+conf/hours_to_wake_at.txt
+conf/mins_to_wake_at.txt
+conf/news_api_org_api_key.txt
+conf/news_api_org_sources.txt

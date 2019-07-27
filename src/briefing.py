@@ -31,5 +31,3 @@ def give_briefing():
     text = get_briefing_text()
     print(text)
     speak(text)
-
-give_briefing()

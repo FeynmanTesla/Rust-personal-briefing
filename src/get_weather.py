@@ -5,7 +5,7 @@ from pyowm import OWM
 
 current_day_of_month = int(date.today().day)
 city_id = int(open("../conf/city_id.txt", "r").read())
-city_name = open("../conf/cityName.txt", "r").read()
+city_name = open("../conf/city_name.txt", "r").read()
 owm_api_key = open("../conf/owm_api_key.txt", "r").read()
 
 inflectEngine = inflect.engine()

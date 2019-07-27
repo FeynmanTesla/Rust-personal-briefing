@@ -1,6 +1,7 @@
 import time
 from pygame import mixer
 from briefing import give_briefing
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 
 def wakeup():
@@ -15,11 +16,8 @@ def alarm():
     mixer.music.play(3)
 
 
-def __main__():
-    # hoursToWake = int(open("../conf/hoursToWakeAt.txt", "r").read())
-    # minsToWake = int(open("../conf/minsToWakeAt.txt", "r").read())
-    # sched = BlockingScheduler()
-    # sched.add_job(wakeup, 'cron', hour=hoursToWake, minute=minsToWake)
-    # sched.start()
-    # TODO: uncomment the above after debugging
-    wakeup()
+hoursToWake = int(open("../conf/hours_to_wake_at.txt", "r").read())
+minsToWake = int(open("../conf/mins_to_wake_at.txt", "r").read())
+sched = BlockingScheduler()
+sched.add_job(wakeup, 'cron', hour=hoursToWake, minute=minsToWake)
+sched.start()
