@@ -1,4 +1,4 @@
-from getDateTime import time_to_spoken, inflectEngine
+from get_date_time import time_to_spoken, inflectEngine
 
 
 def process_event(event, curr_year, curr_month, curr_day_of_month, months, days_in_each_month,

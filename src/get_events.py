@@ -1,11 +1,13 @@
 from __future__ import print_function
+
+import logging
+
 from googleapiclient.discovery import build
-from apiclient import errors
-from processEvent import process_event
 from httplib2 import Http
 from oauth2client import file, client, tools
-import logging
-from getDateTime import datetime
+
+from get_date_time import datetime
+from process_event import process_event
 
 logging.getLogger("googleapicliet.discovery_cache").setLevel(logging.ERROR)
 
@@ -29,11 +31,11 @@ SCOPES = "https://www.googleapis.com/auth/calendar.readonly https://www.googleap
 
 
 def get_events():
-    store = file.Storage("token.json")
+    store = file.Storage("assets/token.json")  # TODO: check whether the token.json file generated ends up here
     creds = store.get()
 
     if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets("credentials.json", SCOPES)
+        flow = client.flow_from_clientsecrets("assets/credentials.json", SCOPES)
         creds = tools.run_flow(flow, store)
     service = build("calendar", "v3", http=creds.authorize(Http()))
 

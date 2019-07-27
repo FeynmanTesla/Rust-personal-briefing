@@ -1,4 +1,4 @@
-from getDateTime import datetime, morning_afternoon_or_evening_from_hours
+from get_date_time import datetime, morning_afternoon_or_evening_from_hours
 
 
 def get_greeting():

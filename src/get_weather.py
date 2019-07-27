@@ -1,7 +1,6 @@
-from weather import Weather, Unit
-
 # import datetime
 import inflect
+from weather import Weather, Unit
 
 weather = Weather(unit=Unit.CELSIUS)
 
