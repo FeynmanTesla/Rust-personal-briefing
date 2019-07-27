@@ -3,6 +3,8 @@
 # reload(sys)
 # sys.setdefaultencoding("utf-8")
 
+import pyttsx3
+
 from get_date_time import get_date_time
 from get_events import get_events
 from get_gmail_emails import get_gmail_emails
@@ -11,7 +13,7 @@ from get_news import get_news
 from get_office_365_emails import get_office_365_emails
 from get_weather import get_weather
 
-engine = pyttsx.init()
+engine = pyttsx3.init()
 
 
 # TODO: add error handling
@@ -25,12 +27,16 @@ def get_contact_notifications():
     return get_gmail_emails() + " \n\n" + get_office_365_emails()
 
 
-def give_briefing():
+def get_briefing_text():
     text = get_greeting() + " \n\n" + get_date_time() + " \n\n" + get_weather() + " \n\n" + get_events() + " \n\n" + \
            get_contact_notifications() + " \n\n" + get_news()
     # text = get_greeting() + " \n\n" + get_date_time() + " \n\n" + " \n\n" + getEvents() + \
     #     " \n\n" + get_contact_notifications() + " \n\n" + get_news()
-    speak(text)
+    return text
 
 
-give_briefing()  # TODO: remove post-debugging
+def give_briefing():
+    speak(get_briefing_text())
+
+
+print(get_briefing_text())  # TODO: remove post-debugging
