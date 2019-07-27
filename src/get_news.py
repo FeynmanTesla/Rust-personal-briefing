@@ -4,9 +4,9 @@ newsApiOrgApiKey = open("../conf/newsApiOrgAPIKey.txt",
                         "r").read()  # a text file containing your free API key from https://newsapi.org/
 newsApiOrgSources = open("../conf/newsApiOrgSources.txt", "r").read()  # the news sources the headlines are from
 
-
 # TODO: process the headlines from reading -> listening format
 #           e.g. "S America" --> "South America", "<pound symbol>50bn" --> "50 billion pounds", etc
+
 
 def get_news():
     newsapi = NewsApiClient(api_key=newsApiOrgApiKey)

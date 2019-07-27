@@ -1,5 +1,4 @@
 import datetime
-
 import inflect
 
 inflectEngine = inflect.engine()

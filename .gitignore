@@ -43,3 +43,6 @@ src/__pycache__/get_office_365_emails.cpython-36.pyc
 src/__pycache__/get_weather.cpython-36.pyc
 src/__pycache__/process_event.cpython-36.pyc
 src/__pycache__/process_gmail_message.cpython-36.pyc
+src/o365_token.txt
+conf/office_365_client_id.txt
+conf/office_365_client_secret.txt

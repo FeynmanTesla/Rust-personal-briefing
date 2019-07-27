@@ -1,16 +1,8 @@
-# import sys
-# from importlib import reload
-# reload(sys)
-# sys.setdefaultencoding("utf-8")
-
 import logging
-
 from googleapiclient import errors
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file
-
-# from getEvents import build, errors, Http, file, logging
 from process_gmail_message import process_gmail_message
 
 logging.getLogger("googleapicliet.discovery_cache").setLevel(logging.ERROR)

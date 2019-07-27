@@ -10,6 +10,10 @@
 <h2>Configuration:</h2>
 <p>Set the values of the following variables in text files to save in this directory:</p>
 <ol>
+<li>To set up email for Office 365, follow the instructions found at <a href="https://pypi.org/project/O365/#authentication">https://pypi.org/project/O365/#authentication</a> to register your app with Azure.
+Choose the User.Read, offline_access, and Mail.Read permissions and save the client id to office_365_client_id.txt and the client secret to office_365_client_secret.txt.
+After this, the first time you run the app (and subsequent times requiring re-authentication) you will be given a URL to go to an oAuth Microsoft login.
+Grant permissions and wait to be forwarded to a blank page. Copy the URL of the blank page into your CLI and press Enter to give the value. The application should then be authorised.</li>
 <li>Choose your form of address and save it to conf/formOfAddress.txt (i.e. as with all the following text files, in the conf directory).</li>
 <li>Find and input your city's name and <a href="https://developer.yahoo.com/weather/documentation.html">Yahoo WOEID</a>. Save them to cityName.txt and woeid.txt, respectively.</li>
 <li>Get a free API key from <a href="https://newsapi.org/">newsapi.org</a> and save it to newsApiOrgAPIKey.txt.</li>

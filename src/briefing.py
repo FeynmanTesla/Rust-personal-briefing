@@ -1,5 +1,4 @@
 import pyttsx3
-
 from get_date_time import get_date_time
 from get_events import get_events
 from get_gmail_emails import get_gmail_emails
@@ -29,4 +28,8 @@ def get_briefing_text():
 
 
 def give_briefing():
-    speak(get_briefing_text())
+    text = get_briefing_text()
+    print(text)
+    speak(text)
+
+give_briefing()

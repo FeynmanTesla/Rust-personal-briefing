@@ -1,5 +1,4 @@
 from datetime import date, datetime
-
 import inflect
 import requests
 from pyowm import OWM
@@ -50,6 +49,8 @@ def get_forecast():
 
     min_fcast_temp = int(round(float(min_fcast_temp)))
     max_fcast_temp = int(round(float(max_fcast_temp)))
+
+    if min_fcast_temp == 100 and max_fcast_temp == -100: return ""
 
     return "The forecasted conditions for the rest of the day are " + all_fcast_conditions_str + " with highs of " + \
            str(max_fcast_temp) + " and lows of " + str(min_fcast_temp) + " degrees celsius."

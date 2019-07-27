@@ -1,7 +1,5 @@
 import time
-
 from pygame import mixer
-
 from briefing import give_briefing
 
 
