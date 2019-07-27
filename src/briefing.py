@@ -1,8 +1,3 @@
-# import sys
-# from importlib import reload
-# reload(sys)
-# sys.setdefaultencoding("utf-8")
-
 import pyttsx3
 
 from get_date_time import get_date_time
@@ -30,13 +25,8 @@ def get_contact_notifications():
 def get_briefing_text():
     text = get_greeting() + " \n\n" + get_date_time() + " \n\n" + get_weather() + " \n\n" + get_events() + " \n\n" + \
            get_contact_notifications() + " \n\n" + get_news()
-    # text = get_greeting() + " \n\n" + get_date_time() + " \n\n" + " \n\n" + getEvents() + \
-    #     " \n\n" + get_contact_notifications() + " \n\n" + get_news()
     return text
 
 
 def give_briefing():
     speak(get_briefing_text())
-
-
-print(get_briefing_text())  # TODO: remove post-debugging

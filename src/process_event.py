@@ -7,8 +7,6 @@ def process_event(event, curr_year, curr_month, curr_day_of_month, months, days_
     dateTime = event["start"].get("dateTime",
                                   event["start"].get("date"))  # format 2018-09-14T17:30:00+01:00 YYYY-MM-DDTHH:MM
 
-    print(dateTime)
-
     year = int(dateTime[0:4])
     monthNumber = int(dateTime[5:7]) - 1
     dayOfMonth = int(dateTime[8:10])

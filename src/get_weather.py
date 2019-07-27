@@ -62,6 +62,3 @@ def get_weather():  #
 
     return "The current conditions in " + city_name + " are " + current_conditions + \
            " with a current temperature of " + str(current_temp) + " degrees celsius." + " " + get_forecast()
-
-
-print(get_weather())  # TODO: remove after debugging
