@@ -1,2 +1,4 @@
 @ECHO OFF
-cd src && .\env\Scripts\activate && python3 wakeup.py && deactivate
+cd src && .\env\Scripts\activate && python wakeup.py && deactivate && cd ..
+deactivate
+cd ..
