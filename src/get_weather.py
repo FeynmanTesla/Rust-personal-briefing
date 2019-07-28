@@ -30,8 +30,10 @@ def get_forecast():
             break
         local_min_temp = fcast_item["main"]["temp_min"]
         local_max_temp = fcast_item["main"]["temp_max"]
-        if local_max_temp > max_fcast_temp: max_fcast_temp = local_max_temp
-        if local_min_temp < min_fcast_temp: min_fcast_temp = local_min_temp
+        if local_max_temp > max_fcast_temp:
+            max_fcast_temp = local_max_temp
+        if local_min_temp < min_fcast_temp:
+            min_fcast_temp = local_min_temp
         day_conditions = fcast_item["weather"][0]["description"]
         if not all_fcast_conditions.__contains__(day_conditions):
             all_fcast_conditions.append(day_conditions)
@@ -50,10 +52,12 @@ def get_forecast():
     min_fcast_temp = int(round(float(min_fcast_temp)))
     max_fcast_temp = int(round(float(max_fcast_temp)))
 
-    if min_fcast_temp == 100 and max_fcast_temp == -100: return ""
+    if min_fcast_temp == 100 and max_fcast_temp == -100:
+        return ""
 
-    return "The forecasted conditions for the rest of the day are " + all_fcast_conditions_str + " with highs of " + \
-           str(max_fcast_temp) + " and lows of " + str(min_fcast_temp) + " degrees celsius."
+    else:
+        return "The forecasted conditions for the rest of the day are " + all_fcast_conditions_str +\
+               " with highs of " + str(max_fcast_temp) + " and lows of " + str(min_fcast_temp) + " degrees celsius."
 
 
 def get_weather():  #

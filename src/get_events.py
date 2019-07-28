@@ -28,11 +28,11 @@ SCOPES = "https://www.googleapis.com/auth/calendar.readonly https://www.googleap
 
 
 def get_events():
-    store = file.Storage("assets/token.json")  # TODO: check whether the token.json file generated ends up here
+    store = file.Storage("token.json")
     creds = store.get()
 
     if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets("assets/credentials.json", SCOPES)
+        flow = client.flow_from_clientsecrets("credentials.json", SCOPES)
         creds = tools.run_flow(flow, store)
     service = build("calendar", "v3", http=creds.authorize(Http()))
 

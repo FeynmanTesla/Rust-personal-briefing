@@ -1,0 +1,9 @@
+pyowm
+pyttsx3
+inflect
+newsapi-python
+google-api-python-client
+oauth2client
+O365
+apscheduler
+pygame

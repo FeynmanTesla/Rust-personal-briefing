@@ -9,7 +9,7 @@ logging.getLogger("googleapicliet.discovery_cache").setLevel(logging.ERROR)
 
 query = "newer_than:3d and is:unread"
 maxResultsNo = 10
-store = file.Storage("assets/token.json")  # TODO: check whether the token.json file generated ends up here
+store = file.Storage("token.json")
 creds = store.get()
 user_id = "me"
 formatStr = "full"

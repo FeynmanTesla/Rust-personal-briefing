@@ -1,6 +1,6 @@
 credentials.json
 newsApiOrgAPIKey.txt
-token.json
+src/token.json
 getDateTime.pyc
 getEvents.pyc
 getGreeting.pyc
@@ -52,3 +52,4 @@ conf/hours_to_wake_at.txt
 conf/mins_to_wake_at.txt
 conf/news_api_org_api_key.txt
 conf/news_api_org_sources.txt
+src/env
