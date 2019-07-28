@@ -23,7 +23,7 @@ When you click onto a result and are directed to the /city page, the numbers fol
 <li>Get a free API key from <a href="https://newsapi.org/">newsapi.org</a> and save it to news_api_org_api_key.txt.</li>
 <li>Choose the <a href="https://newsapi.org/sources">news sources</a> the headlines are taken from, and save them to news_api_org_sources.txt. They should be formatted as a comma-separated string of source ids.</li>
 <li>Download credentials.json from <a href="https://developers.google.com/calendar/quickstart/python">https://developers.google.com/calendar/quickstart/python</a> into the src folder.</li>
-<li>Manually run print(getEvents()) once - taking the getEvents() method from the getEvents.py source file. This is to bring up the authorisation process for the Google APIs for reading Calendar and Gmail, and thereby generating the required token.json file. You can do this with the command "python -c 'import get_events; print(get_events())'" in the src folder.</li>
+<li>Manually run print(getEvents()) once - taking the getEvents() method from the getEvents.py source file. This is to bring up the authorisation process for the Google APIs for reading Calendar and Gmail, and thereby generating the required token.json file. You can do this with the command "python3 -c 'from get_events import get_events; print(get_events())'" in the src folder.</li>
 <li>Choose the time you wish to be woken up, and save the hours and minutes separately to hours_to_wake_at.txt and mins_to_wake_at.txt respectively.</li>
 </ol>
 
