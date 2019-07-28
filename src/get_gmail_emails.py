@@ -1,8 +1,10 @@
 import logging
+
 from googleapiclient import errors
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file
+
 from process_gmail_message import process_gmail_message
 
 logging.getLogger("googleapicliet.discovery_cache").setLevel(logging.ERROR)
@@ -16,6 +18,9 @@ formatStr = "full"
 
 
 def get_gmail_emails():
+    """
+    :return: a verbose listing of up to 10 of your most recent unread emails from Gmail.
+    """
     service = build("gmail", "v1", http=creds.authorize(Http()))
     try:
         response = service.users().messages().list(userId=user_id, q=query).execute()

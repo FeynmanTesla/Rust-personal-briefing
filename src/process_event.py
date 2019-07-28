@@ -3,6 +3,17 @@ from get_date_time import time_to_spoken, inflectEngine
 
 def process_event(event, curr_year, curr_month, curr_day_of_month, months, days_in_each_month,
                   curr_weekday_number, weekdays):
+    """
+    :param event: an instance of a module in the Google Calendar API abstracting events.
+    :param curr_year: the current year.
+    :param curr_month: the current month.
+    :param curr_day_of_month: the current date, i.e. day in the month, e.g. 23rd.
+    :param months: an array containing the months of the year as strings.
+    :param days_in_each_month: an array containing the number of days in each month of the year.
+    :param curr_weekday_number: an integer representation of the current day of the week.
+    :param weekdays: an array containing the days of the week as strings.
+    :return: a verbose summary of an event based on its data.
+    """
     result = ""
     dateTime = event["start"].get("dateTime",
                                   event["start"].get("date"))  # format 2018-09-14T17:30:00+01:00 YYYY-MM-DDTHH:MM

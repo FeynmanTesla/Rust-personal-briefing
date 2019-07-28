@@ -1,10 +1,15 @@
 import datetime
+
 import inflect
 
 inflectEngine = inflect.engine()
 
 
 def morning_afternoon_or_evening_from_hours(hours):
+    """
+    :param hours: the current hour of the day.
+    :return: return whether it is morning, afternoon, or evening, based on the time.
+    """
     result = "morning"
     if 12 <= hours < 17:
         result = "afternoon"
@@ -14,6 +19,11 @@ def morning_afternoon_or_evening_from_hours(hours):
 
 
 def time_to_spoken(hours, mins):
+    """
+    :param hours: the current hour of the day.
+    :param mins: the minutes passed in the current hour.
+    :return: a verbose form of the current time.
+    """
     nearerFloorHour = True
     mins = int(5 * round(float(mins) / 5))  # round to nearest 5
 
@@ -48,6 +58,9 @@ def time_to_spoken(hours, mins):
 
 
 def get_date_time():
+    """
+    :return: a verbose description of the current date and time.
+    """
     dateAndTime = datetime.datetime.now()
     dayOfWeek = dateAndTime.strftime("%A")
 

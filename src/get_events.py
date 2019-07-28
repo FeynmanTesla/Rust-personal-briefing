@@ -1,8 +1,11 @@
 from __future__ import print_function
+
 import logging
+
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
+
 from get_date_time import datetime
 from process_event import process_event
 
@@ -28,6 +31,9 @@ SCOPES = "https://www.googleapis.com/auth/calendar.readonly https://www.googleap
 
 
 def get_events():
+    """
+    :return: a verbose summary of upcoming events using the Google Calendar API.
+    """
     store = file.Storage("token.json")
     creds = store.get()
 

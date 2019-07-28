@@ -1,4 +1,11 @@
 def process_gmail_message(msg_id, service, errors):
+    """
+    process Gmail emails into a verbose format of sender and subject.
+    :param msg_id: a unique identifier to find the email in question.
+    :param service: a wrapper module over gmail functionality.
+    :param errors: handler library for errors, usually arising from HTTP.
+    :return: a verbose format of sender and subject of 1 message.
+    """
     try:
         message = service.users().messages().get(userId="me", id=msg_id).execute()
         headers = message["payload"]["headers"]

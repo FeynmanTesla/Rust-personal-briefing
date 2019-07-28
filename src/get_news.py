@@ -8,6 +8,9 @@ newsApiOrgSources = open("../conf/news_api_org_sources.txt", "r").read()
 
 
 def get_news():
+    """
+    :return: verbose news headlines.
+    """
     newsapi = NewsApiClient(api_key=newsApiOrgApiKey)
     top_headlines = newsapi.get_top_headlines(sources=newsApiOrgSources)
     if top_headlines["status"] != "ok":

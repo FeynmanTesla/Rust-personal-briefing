@@ -1,4 +1,5 @@
 from datetime import date, datetime
+
 import inflect
 import requests
 from pyowm import OWM
@@ -19,6 +20,9 @@ forecast_data = requests.get(url=forecast_url)
 
 
 def get_forecast():
+    """
+    get the weather for the rest of the current day in a verbose format.
+    """
     fcast_items = forecast_data.json()["list"]
     min_fcast_temp = 100
     max_fcast_temp = -100
@@ -60,7 +64,10 @@ def get_forecast():
                " with highs of " + str(max_fcast_temp) + " and lows of " + str(min_fcast_temp) + " degrees celsius."
 
 
-def get_weather():  #
+def get_weather():
+    """
+    get the current weather and the forecasted conditions for the rest of the day.
+    """
     current_conditions = current_weather.get_detailed_status()
     current_temp = inflectEngine.number_to_words(
         int(round(float(current_weather.get_temperature(unit='celsius')["temp"]))))
