@@ -1,5 +1,5 @@
-<h1>Python-morning-wakeup</h1>
-<p>This is a Python program that sounds an alarm at a preset time, then gives a briefing including the date and time, upcoming events, unread emails, the weather, and news headlines. To use it follow the below instructions. The alarm clock mp3 file was taken from <a href="http://soundbible.com/1787-Annoying-Alarm-Clock.html">http://soundbible.com/1787-Annoying-Alarm-Clock.html</a>.</p>
+<h1>Rust-personal-briefing</h1>
+<p>This is a Rust program that sounds an alarm at a preset time, then gives a briefing including the date and time, upcoming events, unread emails, the weather, and news headlines. To use it follow the below instructions. The alarm clock mp3 file was taken from <a href="http://soundbible.com/1787-Annoying-Alarm-Clock.html">http://soundbible.com/1787-Annoying-Alarm-Clock.html</a>.</p>
 
 <h2>Dependencies:</h2>
 <ul>
